@@ -1,0 +1,55 @@
+super + Escape + r
+	pkill -USR1 -x sxhkd
+
+super + Return
+	alacritty
+
+super + e
+	alacritty -e ranger --confdir /home/kyd0/.config/ranger/rc.conf
+
+super + c
+	bspc node -c
+
+super + shift + p
+	poweroff
+
+super + {h, j, k, l}
+	bspc node -f {west,south,north,east}
+
+super + space 
+	bspc node -t "~"{floating,tiled}
+
+super + f
+	bspc node -t "~"{fullscreen,tiled}
+
+super + shift + {b,t,s,d,o,r,m,g}
+	{qutebrowser,kotatogram-desktop,shotcut,discord,obs,flatpak run org.vinegarhq.Sober, flatpak run org.polymc.PolyMC,taterclient-ddnet}
+
+super + {_, shift +}{1-9,0}
+	bspc {desktop -f, node -d} '^{1-9,10}'
+
+super + {_,alt + }{h,j,k,l}
+	bspc node -{f,s} {west,south,north,east}
+
+super + shift + Escape
+	rofi -m -1 -show drun
+
+Print
+	maim /home/kyd0/screenshots/screenshot_fullscreen$(date +%Y-%m-%d_%H-%M-%S).png
+
+super + Print
+	maim -s /home/kyd0/screenshots/screenshot_$(date +%Y-%m-%d_%H-%M-%S).png
+
+XF86AudioMute
+    wpctl set-mute @DEFAULT_SINK@ toggle
+
+
+XF86AudioLowerVolume
+    wpctl set-volume @DEFAULT_SINK@ 5%-  
+
+XF86AudioRaiseVolume
+	wpctl set-volume @DEFAULT_SINK@ 5%+
+
+XF86AudioMicMute
+    wpctl set-mute @DEFAULT_SOURCE@ toggle
+
